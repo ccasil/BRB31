@@ -12,24 +12,33 @@
 </head>
 
 <body>
+<div class="container">
 	<a href="/welcome">Home</a>
-	<a href="/logout">Logout</a>
+	<a href="/flavors">Flavors</a>
+	<a class="floatright" href="/logout">Logout</a>
+<h1>Favorite Flavors:</h1>
 <table class="table">
 	<thead>
 		<tr>
 			<th>Rank</th>
+			<th></th>
 			<th>Flavor</th>
 			<th>Description</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
+		{% for x in flavors %}
 		<tr>
 			<td></td>
-			<td></td>
-			<td></td>
+			<td><img class="center" src="{% static 'br/images/enlarge' %}{{ x.imgname }}" width="72.5"></td>
+			<td><a href="display/{{ x.id }}">{{ x.flavor }}</a></td>
+			<td>{{ x.description }}</td>
+			<td><a href="/removefromfavorites/{{ x.id }}">Remove from my Favorites</a></td>
 		</tr>
+		{% endfor %}
 	</tbody>
 </table>
-
+</div>
 </body>
 </html>

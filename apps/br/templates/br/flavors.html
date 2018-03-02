@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Favorites!</title>
+	<meta name="description" content="CONTENT" >
+    <script type="text/javascript"  src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'br/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    <link rel="stylesheet" href="{% static 'br/javascript/main.js' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+
+<body>
+<div class="container">
+	<a href="/welcome">Home</a>
+	<a class="floatright" href="/logout">Logout</a>
+<h1>Classic Flavors</h1>
+
+{% for z in flavors %}
+<div class="divide inline">
+	<img class="center" src="{% static 'br/images/' %}{{ z.imgname }}">
+	<p><button type="button" class="btn btn-primary btn-block center"><a href="display/{{ z.id }}">{{ z.flavor }}</a></button></p>
+</div>
+{% endfor %}
+
+
+<!-- <table>
+	<thead>
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			{% for z in flavors %}
+			<td>
+				<img src="{% static 'br/images/' %}{{ z.imgname }}">
+				<p><button type="button" class="btn btn-primary">{{z.flavor}}</button></p>
+			</td>
+			{% endfor %}
+			</td>
+		</tr>
+	</tbody>
+</table> -->
+
+
+
+<!-- <table>
+	<thead>
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<img src="{% static 'br/images/bobsledbrownie.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Bobsled Brownie</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/cherriesjubilee.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Cherries Jubilee</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/chocolate.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Chocolate</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/chocolatechip.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Chocolate Chip</button></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="{% static 'br/images/chocolatechipcookiedough.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Chocolate Chip Cookie Dough</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/chocolatemousseroyale.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Chocolate Mousse Royale</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/daiquiri.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Daquiri Ice</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/goldmedalribbon.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Gold Medal Ribbon</button></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="{% static 'br/images/icingonthecake.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Icing On The Cake</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/jamoca.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Jamoca</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/jamocaalmond.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Jamoca Almond</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/madewithsnickers.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Made With Snickers</button></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="{% static 'br/images/mintchocolatechip.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Mint Chocolate Chip</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/newyorkcheesecake.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">New York Cheesecake</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/nuttycoconut.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Nutty Coconut</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/oldfashionedbutterpecan.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Old Fashioned Butter Pecan</button></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="{% static 'br/images/oreocookiesncream.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Oreo Cookies n Cream</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/peanutbutternchocolate.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Peanut Butter n Chocolate</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/pistachio.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Pistachio</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/prailinesncream.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Prailines n Cream</button></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="{% static 'br/images/quarterbackcrunch.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Quarterback Crunch</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/rainbowsherbet.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Rainbow Sherbet</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/reesespeanutbutter.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Reeses Peanut Butter</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/rockyroad.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Rocky Road</button></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="{% static 'br/images/rumraisin.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Rum Raisin</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/strawberry.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Strawberry</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/triplegrape.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Triple Grape</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/vanilla.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Vanilla</button></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="{% static 'br/images/wildnreckless.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">Wild n Reckless</button></p>
+			</td>
+			<td>
+				<img src="{% static 'br/images/worldclasschocolate.jpg' %}">
+				<p><button type="button" class="btn btn-primary btn-sm">World Class Chocolate</button></p>
+			</td>
+		</tr>
+	</tbody>
+</table> -->
+</div>
+</body>
+</html>

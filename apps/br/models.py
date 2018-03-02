@@ -47,5 +47,11 @@ class User(models.Model):
 
 class IceCream(models.Model):
 	flavor = models.CharField(max_length = 255)
+	imgname = models.CharField(max_length = 255, default="")
 	description = models.TextField()
 	users = models.ManyToManyField(User, related_name="items")
+
+class Ranking(models.Model):
+	rank = models.IntegerField()
+	favoriter = models.ForeignKey(User, related_name="favorites")
+	favorited = models.ForeignKey(IceCream, related_name="favorites")
