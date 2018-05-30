@@ -2,8 +2,14 @@
 	margin: 0px;
 	padding: 0px;
 }
+body {
+	padding-top: 200px;
+}
 #timer{
 	text-align: center;
+}
+#map {
+	margin: 25px;
 }
 .divide{
 	width: 210px;
@@ -17,7 +23,7 @@
 .center{
 	text-align: center;
 }
-h1{
+title, h1, h2, table, form, p{
 	color: #fff;
 }
 button{
@@ -26,9 +32,6 @@ button{
 img{
 	text-align: center;
 	margin: 5px;
-}
-table{
-	color: #fff;
 }
 a:link {
 	color: #fff;
@@ -40,6 +43,13 @@ a:hover {
 	color: #fff;
 	text-decoration: none;
 }
+.flavorlink {
+	font-size: 12px;
+	text-align: center;
+}
 body{
-	background: #cc59cc;
+	background: #eb83bf;
+}
+li {
+	color: red;
 }
