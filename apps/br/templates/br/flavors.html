@@ -45,8 +45,8 @@
 {% for z in flavors %}
 
 <div class="panel panel-default inline">
-	<div class="panel-heading"><img class="center" src="{% static 'br/images/' %}{{ z.imgname }}"></div>
-	<div class="panel-body"><a href="display/{{ z.id }}" class="flavorlink">{{ z.flavor }}</a></div>
+	<div class="panel-heading flavorlink"><a href="display/{{ z.id }}" class="flavorlink">{{ z.flavor }}</a></div>
+	<div class="panel-body"><img class="center" src="{% static 'br/images/' %}{{ z.imgname }}"></div>
 </div>
 {% endfor %}
 

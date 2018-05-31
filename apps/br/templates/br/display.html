@@ -45,6 +45,7 @@
 	<img class="inline" src="{% static 'br/images/' %}{{ flavors.imgname }}">
 	<p class="inline"> {{ flavors.description }}</p>
 	<hr>
+	<p>{{ ranking.rank }}</p>
 		<p><a href="/addtofavorites/{{ flavors.id }}">Add to Favorites</a></p>
 		<p><a href="/removefromfavorites/{{ flavors.id }}">Remove from Favorites</a></p>
 

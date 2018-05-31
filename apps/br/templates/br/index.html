@@ -12,26 +12,38 @@
 </head>
 
 <body>
-<div class="container">
+	<div class="container-fluid">
+		<!--Navbar-->
+		<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+			<a class="navbar-brand" href="#">3 1</a>
+		</nav>
+
 	<h1>Welcome!</h1>
 	<h2>Register:</h2>
 	<form class= "form-group" action='/register' method='post'>
 		{% csrf_token %}
-	    <p>First Name: <input class="form-control" type='text' name='first_name'></p>
-	    <p>Last Name: <input class="form-control" type='text' name='last_name'></p>
-	    <p>Email: <input class="form-control" type='text' name='email'></p>
-	    <p>Birthday: <input class="form-control" type="date" name="birthday"></p>
-	    <p>Password: <input class="form-control" type='password' name='password'></p>
-	    <p>*Password should be at least 8 characters</p>
-	    <p>Confirm Password: <input class="form-control" type='password' name='cpassword'></p>
-	    <input class="btn btn-primary" type='submit' value='Register'>
+		<p><div class="row">
+			<div class="col">
+				<input type="text" class="form-control" placeholder="First Name" name="first_name">
+			</div>
+			<div class="col">
+				<input type="text" class="form-control" placeholder="Last Name" name="last_name">
+			</div>
+		</div></p>
+	    <input class="form-control" type='text' placeholder="Email" name='email'>
+	    <p>Birthday: <input class="form-control inline" type="date" placeholder="Birthday" name="birthday"></p>
+	    <p><input class="form-control" type='password' placeholder="Password" name='password'></p>
+	    
+		<p><input class="form-control" type='password' placeholder="Confirm Password" name='cpassword'></p>
+		<p>*Password should be at least 8 characters</p>
+	    <input class="btn btn-secondary" type='submit' value='Register'>
 	</form>
 	<h2>Login:</h2>
 	<form class= "form-group" action='/login' method='post'>
 		{% csrf_token %}
 	    <p>Email: <input class="form-control" type='text' name='email'></p>
 	    <p>Password: <input class="form-control" type='password' name='password'></p>
-	    <input class="btn btn-primary" type='submit' value='Login'>
+	    <input class="btn btn-secondary" type='submit' value='Login'>
 	</form>
 
 {% if messages %}

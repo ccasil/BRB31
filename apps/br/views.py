@@ -3,7 +3,8 @@ from __future__ import unicode_literals
 from django.shortcuts import render, redirect
 from .models import *
 from django.contrib import messages
-from time import gmtime, strftime
+from datetime import date, time, datetime, timedelta
+# from time import gmtime, strftime
 import bcrypt
 
 def index(request):
@@ -11,8 +12,8 @@ def index(request):
 
 def register(request):
 	if request.method == 'POST':
-		password = request.POST['password']
-		cpassword = request.POST['cpassword']
+		# password = request.POST['password']
+		# cpassword = request.POST['cpassword']
 		errors = User.objects.basic_validator(request.POST)
 		if 'userreg' in errors:
 			request.session['id'] = errors['userreg'].id
@@ -35,9 +36,18 @@ def login(request):
 	return redirect('/')
 
 def welcome(request):
+	today = date.today()
+	january = date(today.year, 1, 31)
+	march = date(today.year, 3, 31)
+	may = date(today.year, 5, 31)
+	july = date(today.year, 7, 31)
+	august = date(today.year, 8, 31)
+	october = date(today.year, 10, 31)
+	december = date(today.year, 12, 31)
 	data = {
-		"time": strftime("%B %d, %Y %H:%M %p", gmtime())
+		"time": "There are %d days until the next 31st of the month!" % ((july - today).days)
 		# http://strftime.org/
+		# https: // www.guru99.com/date-time-and-datetime-classes-in-python.html
 	}
 	return render(request, 'br/welcome.html', data)
 
@@ -71,7 +81,7 @@ def removefromfavorites(request,id):
 def display(request,id):
 	data = {
 		'flavors': IceCream.objects.get(id=id),
-		'item': IceCream.objects.filter(users=request.session['id'])
+		# 'ranking': Ranking.objects.get(favoriter_id=request.session['id'])
 	}
 	return render(request, 'br/display.html', data)
 
